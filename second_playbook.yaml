@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: Installer Git
+      become: true
+      apt:
+        name: git
+        state: present
+
+    - name: Cloner un repository Git public
+      become: true
+      git:
+        repo: https://github.com/Pauline-Mdt/terraform-ansible_test
+        dest: /home/adminuser/app
